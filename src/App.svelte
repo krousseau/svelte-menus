@@ -2,18 +2,20 @@
   import { onMount } from 'svelte';
   import logo from './assets/svelte.png';
   import { getMenus } from './api/menuApi';
-  import type { Menu } from './api/menuApi';
+  import { menusStore } from './stores';
+  import type { Menu } from './types/menuTypes';
   import MenuListItem from './menus/MenuListItem.svelte';
 
   let menus: Menu[] | null = null
   onMount(async () => {
 		menus = await getMenus();
+    menusStore.set(menus);
 	});
 </script>
 
 <main>
   <img src={logo} alt="Svelte Logo" />
-  <h1> Menus</h1>
+  <h1>Menus</h1>
 
   {#if menus !== null}
     {#each menus as menu}

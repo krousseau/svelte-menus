@@ -5,7 +5,8 @@
 </script>
 
 <div>
-  {course.title}
+  <div>{course.title}</div>
+  <button on:click={() => console.log('add menu item')}>Add Menu Item</button>
   {#each course.menuItems as menuItem}
     <MenuItem {menuItem} />
   {/each}
