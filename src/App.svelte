@@ -18,7 +18,7 @@
   <h1>Menus</h1>
 
   {#if menus !== null}
-    {#each menus as menu}
+    {#each $menusStore as menu}
       <MenuListItem {menu} />
     {/each}
   {:else}
