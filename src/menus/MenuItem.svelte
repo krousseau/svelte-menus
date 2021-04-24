@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { MenuItem } from '../types/menuTypes';
+  import { Navigate } from 'svelte-router-spa'
   
   export let menuId: number;
   export let courseId: number;
@@ -11,5 +12,5 @@
   <span>{menuItem.price}</span>
   <span>{menuItem.description}</span>
 
-  <a href="">Edit</a>
+  <Navigate to={`edit-menu-item/${menuItem.id}`}>Edit</Navigate>
 </li>

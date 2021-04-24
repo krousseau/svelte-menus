@@ -1,18 +1,18 @@
 export type Menu = {
   id: number;
-  title: String;
+  title: string;
   courses: Course[];
 }
 
 export type Course = {
   id: number;
-  title: String;
+  title: string;
   menuItems: MenuItem[];
 }
 
 export type MenuItem = {
-  id: number;
-  name: String;
-  description: String;
-  price: number;
+  id?: number;
+  name: string;
+  description: string;
+  price: number | null;
 }

@@ -1,29 +1,12 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import logo from './assets/svelte.png';
-  import { getMenus } from './api/menuApi';
-  import { menusStore } from './stores';
-  import type { Menu } from './types/menuTypes';
-  import MenuListItem from './menus/MenuListItem.svelte';
-
-  let menus: Menu[] | null = null
-  onMount(async () => {
-		menus = await getMenus();
-    menusStore.set(menus);
-	});
+  import { Router } from 'svelte-router-spa';
+  import { routes } from './routes';
 </script>
 
 <main>
   <img src={logo} alt="Svelte Logo" />
-  <h1>Menus</h1>
-
-  {#if menus !== null}
-    {#each $menusStore as menu}
-      <MenuListItem {menu} />
-    {/each}
-  {:else}
-    <div>Loading...</div>
-  {/if}
+  <Router {routes} />
 </main>
 
 <style>
