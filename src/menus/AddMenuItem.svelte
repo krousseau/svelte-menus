@@ -1,13 +1,12 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { getMenus } from '../api/menuApi';
   import type { MenuItem } from '../types/menuTypes';
-  // import { menusStore } from '../menuStore';
-import { Navigate, navigateTo } from 'svelte-router-spa';
+  import { addMenuItem } from '../menuStore';
+  import { Navigate, navigateTo } from 'svelte-router-spa';
+
+  let menuItem: MenuItem = { id: -1, name: '', price: null, description: ''};
 
   export let currentRoute;
-  const menuItemId = currentRoute.namedParams.id;
-  let menuItem: MenuItem = { id: -1, name: '', price: null, description: ''};
+  const courseId = currentRoute.namedParams.courseId;
   
   // onMount(async () => {
   //   if (menusStore && menusStore.length > 0)
@@ -24,7 +23,7 @@ import { Navigate, navigateTo } from 'svelte-router-spa';
 </script>
 
 <form>
-  <h2>Edit Menu Item</h2>
+  <h2>Add Menu Item</h2>
 
   <fieldset>
     <label for="name">Name</label>
@@ -41,5 +40,12 @@ import { Navigate, navigateTo } from 'svelte-router-spa';
     <input name="price" type="number" bind:value={menuItem.price} />
   </fieldset>
 
-  <Navigate to="/">Done</Navigate>
+  <input type="submit" on:click|preventDefault={() => {
+    console.log('saving', menuItem);
+    
+    menuItem.id = Math.floor(Math.random() * 10000);
+    addMenuItem(courseId, menuItem);
+    navigateTo('/');
+  }} value="Save" />
+  <Navigate to="/">Cancel</Navigate>
 </form>

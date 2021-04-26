@@ -11,7 +11,7 @@ export type Course = {
 }
 
 export type MenuItem = {
-  id?: number;
+  id: number;
   name: string;
   description: string;
   price: number | null;
