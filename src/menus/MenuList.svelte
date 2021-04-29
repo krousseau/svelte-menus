@@ -11,9 +11,9 @@
     }
 
     console.log('menu list - fetching');
-		const menusResp = await getMenus();
+    const menusResp = await getMenus();
     saveMenus(menusResp);
-	});
+  });
 </script>
 
 <main>
