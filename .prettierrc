@@ -1,6 +1,7 @@
 {
+    "printWidth": 160,
+    "tabWidth": 4,
     "arrowParens": "avoid",
-    "singleQuote": true,
     "svelteSortOrder": "options-scripts-markup-styles",
     "trailingComma": "none"
   }
