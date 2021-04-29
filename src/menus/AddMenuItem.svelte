@@ -1,9 +1,9 @@
 <script lang="ts">
-    import type { MenuItem } from "../types/menuTypes";
-    import { addMenuItem } from "../menuStore";
-    import { Navigate, navigateTo } from "svelte-router-spa";
+    import type { MenuItem } from '../types/menuTypes';
+    import { addMenuItem } from '../menuStore';
+    import { Navigate, navigateTo } from 'svelte-router-spa';
 
-    let menuItem: MenuItem = { id: -1, name: "", price: null, description: "" };
+    let menuItem: MenuItem = { id: -1, name: '', price: null, description: '' };
 
     export let currentRoute;
     const courseId = currentRoute.namedParams.courseId;
@@ -43,11 +43,11 @@
     <input
         type="submit"
         on:click|preventDefault={() => {
-            console.log("saving", menuItem);
+            console.log('saving', menuItem);
 
             menuItem.id = Math.floor(Math.random() * 10000);
             addMenuItem(courseId, menuItem);
-            navigateTo("/");
+            navigateTo('/');
         }}
         value="Save"
     />

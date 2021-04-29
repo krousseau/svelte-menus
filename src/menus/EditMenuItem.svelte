@@ -1,13 +1,13 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { getMenus } from "../api/menuApi";
-    import type { MenuItem } from "../types/menuTypes";
+    import { onMount } from 'svelte';
+    import { getMenus } from '../api/menuApi';
+    import type { MenuItem } from '../types/menuTypes';
     // import { menusStore } from '../menuStore';
-    import { Navigate, navigateTo } from "svelte-router-spa";
+    import { Navigate, navigateTo } from 'svelte-router-spa';
 
     export let currentRoute;
     const menuItemId = currentRoute.namedParams.id;
-    let menuItem: MenuItem = { id: -1, name: "", price: null, description: "" };
+    let menuItem: MenuItem = { id: -1, name: '', price: null, description: '' };
 
     // onMount(async () => {
     //   if (menusStore && menusStore.length > 0)
