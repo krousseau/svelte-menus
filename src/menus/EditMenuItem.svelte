@@ -3,12 +3,12 @@
   import { getMenus } from '../api/menuApi';
   import type { MenuItem } from '../types/menuTypes';
   // import { menusStore } from '../menuStore';
-import { Navigate, navigateTo } from 'svelte-router-spa';
+  import { Navigate, navigateTo } from 'svelte-router-spa';
 
   export let currentRoute;
   const menuItemId = currentRoute.namedParams.id;
-  let menuItem: MenuItem = { id: -1, name: '', price: null, description: ''};
-  
+  let menuItem: MenuItem = { id: -1, name: '', price: null, description: '' };
+
   // onMount(async () => {
   //   if (menusStore && menusStore.length > 0)
   //   {
@@ -16,11 +16,11 @@ import { Navigate, navigateTo } from 'svelte-router-spa';
   //     return;
   //   }
 
-	// 	const menus = await getMenus();
+  // 	const menus = await getMenus();
   //   //menusStore.set(menus);
   //   menuItem = menus[0].courses[0].menuItems[0];
   //   console.log('menu item', menuItem);
-	// }); 
+  // });
 </script>
 
 <form>
@@ -30,7 +30,7 @@ import { Navigate, navigateTo } from 'svelte-router-spa';
     <label for="name">Name</label>
     <input name="name" bind:value={menuItem.name} />
   </fieldset>
-  
+
   <fieldset>
     <label for="description">Description</label>
     <textarea name="description" bind:value={menuItem.description} />
