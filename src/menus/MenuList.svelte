@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { getMenus } from '../api/menuApi';
-  import { saveMenus, menus, menusMap } from '../menuStore';
+  import { saveMenus, menus } from '../menuStore';
   import MenuListItem from './MenuListItem.svelte';
 
   onMount(async () => {

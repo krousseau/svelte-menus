@@ -1,11 +1,11 @@
 export type MenuStore = {
   id: number;
   title: string;
-  courseIds: Course[];
+  courseIds: number[];
 }
 
 export type CourseStore = {
   id: number;
   title: string;
-  menuItemIds: MenuItem[];
+  menuItemIds: number[];
 }
